@@ -4,7 +4,6 @@ class numbermachine0:
   def __init__(self,raw):
     self.data = sorted(raw)
     self.size = len(raw)
-  
   lowQtarget = 25
   uppQtarget = 75
   def Point1(self): #lowest item of list
@@ -17,8 +16,3 @@ class numbermachine0:
     return (self.data[:math.floor(self.size/100*self.lowQtarget)][-1] + self.data[-math.floor(self.size/100*(100-self.lowQtarget)):][0])/2
   def Point4(self): #upper Quartile
     return (self.data[:math.floor(self.size/100*self.uppQtarget)][-1] + self.data[-math.floor(self.size/100*(100-self.uppQtarget)):][0])/2
-lis = [1,2,3,4,5,6,7,8,9,10]
-res = numbermachine0(lis)
-
-print(res.Point3())
-print(res.Point4())
