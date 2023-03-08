@@ -4,15 +4,15 @@ class numbermachine0:
   def __init__(self,raw):
     self.data = sorted(raw)
     self.size = len(raw)
-  lowQtarget = 25
-  uppQtarget = 75
-  def Point1(self): #lowest item of list
-    return (self.data[0])
-  def Point5(self): #highest item of list
-    return (self.data[-1])
-  def Point3(self): #median of list
-    return (self.data[:self.size//2][-1] + self.data[-(self.size//2):][0])/2
-  def Point2(self): #lower quartile
-    return (self.data[:math.floor(self.size/100*self.lowQtarget)][-1] + self.data[-math.floor(self.size/100*(100-self.lowQtarget)):][0])/2
-  def Point4(self): #upper Quartile
-    return (self.data[:math.floor(self.size/100*self.uppQtarget)][-1] + self.data[-math.floor(self.size/100*(100-self.uppQtarget)):][0])/2
+  LowQTarget = 25
+  UppQTarget = 75
+  def PtLow(self):
+    return self.data[0]
+  def PtTop(self):
+    return self.data[-1]
+  def PtMed(self):
+    return (list(reversed(self.data))[self.size//2] + self.data[self.size//2]) / 2
+  def PtQLow(self):
+    return (list(reversed(self.data))[int(self.size-(self.size/100*self.LowQtTarget))] + self.data[int(self.size/100*self.LowQtTarget)]) / 2
+  def PtQTop(self):
+    return (list(reversed(self.data))[int(self.size-(self.size/100*self.UppQtTarget))] + self.data[int(self.size/100*self.UppQtTarget)]) / 2
